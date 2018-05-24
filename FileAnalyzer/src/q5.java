@@ -10,35 +10,34 @@ public class q5 {
 
 		FileInputStream inputStream = null;
 		Scanner sc = null;
-		int count =0;
-	    
+		int count = 0;
+
 		try {
-		    inputStream = new FileInputStream(new File("C:\\Users\\Gil\\Desktop\\2014-09-03.log"));
-		    sc = new Scanner(inputStream, "UTF-8");
-		    while (sc.hasNextLine()) {
-			     String line = sc.nextLine();
-			    
-			     // Question 5
-			     if( line.contains("404") &&line.contains("heroku/router") ) {
-			    	  System.out.println(line);
-			     	  count = count +1;
-			     }
-			     
-			  }
-		    System.out.println("404 count: "+ count); 
-		 
-			   
+			inputStream = new FileInputStream(new File("C:\\Users\\Gil\\Desktop\\2014-09-03.log"));
+			sc = new Scanner(inputStream, "UTF-8");
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+
+				// Question 5
+				if (line.contains("404") && line.contains("heroku/router")) {
+					System.out.println(line);
+					count = count + 1;
+				}
+
+			}
+			System.out.println("404 count: " + count);
+
 			if (sc.ioException() != null) {
-			    throw sc.ioException();  //suppress exceptions
+				throw sc.ioException(); // suppress exceptions
 			}
 
 		} finally {
-		    if (inputStream != null) {
-		        inputStream.close();
-		    }
-		    if (sc != null) {
-		        sc.close();
-		    }
+			if (inputStream != null) {
+				inputStream.close();
+			}
+			if (sc != null) {
+				sc.close();
+			}
 		}
 	}
 
